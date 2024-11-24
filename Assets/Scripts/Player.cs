@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -47,6 +48,17 @@ public class Player : MonoBehaviour
         if (input != Vector3.zero)
         {
             transform.forward = input;
+        }
+        if (health.health <= 0)
+        {
+            if (isPlayer1)
+            {
+                SceneManager.LoadScene("Blue");
+            }
+            else
+            {
+                SceneManager.LoadScene("Yellow");
+            }
         }
     }
 
